@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <style>
+        table,tr,td,body{
+            background-color: lightblue;
+        }
+
+        span{
+            color: red;
+            font-family: 'Courier New';
+        }
+    </style>
+</head>
+<body>
+    <form action="dental_care.html" onsubmit="return validate()">
+        <table>
+            <tr>
+                <td>Name:</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="name" placeholder="first"/></td>
+                <td><span id="nameerr"></span></td>
+                <td><input type="text" id="last" placeholder="last"/></td>
+                <td><span id="lasterr"></span></td>
+            </tr>
+            <tr>
+                <td>DOB</td>
+                <td>Appointment Date:</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="dob" placeholder="dd/mm/yy"/></td>
+                <td><span id="birth"></span></td>
+                <td><input type="number" id="date" placeholder="dd/mm/yy"/></td>
+                <td><span id="appointment"></span></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>Phone:</td>
+            </tr>
+            <tr>
+                <td><input type="email" id="email" placeholder="email@gmail.com"/></td>
+                <td><span id="emailerr"></span></td>
+                <td><input type="number" id="phone" placeholder="#### #### ##"/></td>
+                <td><span id="phoneerr"></span></td>
+            </tr>
+            <tr>
+                <td>Appontment Time:</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="time"/></td>
+            </tr>
+            <tr>
+                <td> Do you require dental surgery?</td>
+            </tr>
+            <tr>
+                <td> <input type="checkbox" name="yes">Yes</td>
+                <td><input type="checkbox" name="no">No</td>
+            </tr>
+            <tr>
+                <td> Have you visited our dental clinic before?</td>
+            </tr>
+            <tr>
+                <td> <input type="checkbox" name="yes">Yes</td>
+                <td><input type="checkbox" name="no">No</td>
+            </tr>
+            <tr>
+                <td> Have you experienced dental illnes/surgeries in the past</td>
+            </tr>
+            <tr>
+                <td> <input type="checkbox" name="yes">Yes</td>
+                <td><input type="checkbox" name="no">No</td>
+            </tr>
+            <tr>
+                <td><button id="submit" onclick="validate()">Submit</button></td>
+            </tr>
+        </table>
+        
+    </form>
+    <script>
+        function validate(){
+            valid = true
+            
+            document.getElementById('nameerr').innerHTML = ''
+            document.getElementById('birth').innerHTML = ''
+
+            if(document.getElementById('name').value == ''){
+                document.getElementById('nameerr').innerHTML = "name is empty"
+                valid = false
+            }
+            if(document.getElementById('last').value == ''){
+                document.getElementById('lasterr').innerHTML = "last name is empty"
+                valid = false
+            }
+
+           if(document.getElementById('dob').value == ''){
+            document.getElementById('birth').innerHTML = "please enter date of birth"
+            valid = false
+            }
+        if(document.getElementById('date').value == ''){
+            document.getElementById('appointment').innerHTML = "enter date"
+            valid = false
+        }
+        if(document.getElementById('email').value == ''){
+            document.getElementById('emailerr').innerHTML = " provide correct email id"
+            valid = false
+        }
+        if(document.getElementById('phone').value == ''){
+            document.getElementById('phoneerr').innerHTML = "provide mobile no"
+            valid = false
+        }
+            return valid
+        }
+
+    </script>
+</body>
+</html>
